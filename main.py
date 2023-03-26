@@ -47,3 +47,6 @@ def prompt(input):
 with st.sidebar:
   st.title("Upwork Proposal Generator")
   st.write("An AI-powered proposal generator. Trained on Upwork's recommendations for effective proposals.")
+  tone = st.multiselect('Select the tone of the proposal.', ['Conversational', 'Informative', 'Professional', 'Friendly', 'Confident'])
+  experience = st.text_area("Relevant Experience", placeholder='Enter relevant experience...')
+  notes = st.text_area("Notes", placeholder='Enter any extra info to be included in the proposal')
