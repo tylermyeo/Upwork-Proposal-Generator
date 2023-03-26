@@ -55,7 +55,7 @@ with st.sidebar:
   job_description = st.text_area("Job Description", placeholder="Paste the job description here.")
   prompt_input = f"""
   Write an Upwork job proposal for the following job description: \n
-{job_description} \n 
+  {job_description} \n 
   \n
   The proposal tone should be {tone}. \n
   Write the proposal in the first-person. \n
@@ -66,6 +66,7 @@ with st.sidebar:
   Mention the following in the proposal:\n
   {experience} \n
   {notes} \n
+  """
 
 
   if(st.sidebar.button("✨ Write for me", key=1)):
