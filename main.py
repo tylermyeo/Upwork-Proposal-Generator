@@ -40,30 +40,40 @@ def prompt(input):
   for item in range(len(output_list)):
     output_dict = output_list[item]
     output_text = output_dict['text']
-    tokens_used = output_dict['usage']['total_tokens']
     return output_text
-    return tokens_used
 
 
 # SIDEBAR
 with st.sidebar:
   st.title("Upwork Proposal Generator")
   st.write("An AI-powered proposal generator. Trained on Upwork's recommendations for effective proposals.")
-  tone = st.multiselect('Select the tone of the proposal.', ['Conversational', 'Informative', 'Professional', 'Friendly', 'Confident'])
-  experience = st.text_area("Relevant Experience", placeholder='Enter relevant experience...')
-  notes = st.text_area("Notes", placeholder='Enter any extra info to be included in the proposal...')
+  st.markdown("""---""")
+
   job_description = st.text_area("Job Description", placeholder="Paste the job description here.")
+  st.markdown("""___""")
+  tone = st.multiselect('Select the tone of the proposal.', ['Conversational', 'Informative', 'Professional', 'Friendly', 'Confident'])
+  
+  experience = st.text_area("Relevant Experience", placeholder='Enter your relevant experience...')
+  notes = st.text_area("Notes", placeholder='Enter any extra info to be included in the proposal...')
+  
   prompt_input = f"""
   Write an Upwork job proposal for the following job description: \n
   {job_description} \n 
   \n
-  The proposal tone should be {tone}. \n
+  The proposal tone must be {tone}. \n
   Write the proposal in the first-person. \n
+  Use the following structure to write the job proposal:\n
+  * A quick, straightforward greeting and introduction followed by a concise restatement of the client’s core need or problem.
+  * A clear statement that tells clients that you can solve their problem and that you can start right away.
+  * A short pitch, preferably two to three sentences, telling the prospective client exactly why you’re an excellent fit for the job.
+  * A brief but detailed description of the methods and processes you’ll use to approach the project and provide excellent service.
+  * An estimate of how long you expect the project to take
+  * Attachments such as relevant documents, files of sample works, or links to your portfolio demonstrating your past projects related to the client’s needs.\n
+  
   The proposal should be 3 paragraphs. \n
-  Address all of the requirements mentioned in the job description. \n
   Include an estimate of how long you expect the project to take. \n
   
-  Mention the following in the proposal:\n
+  Include the following in the proposal:\n
   {experience} \n
   {notes} \n
   """
