@@ -4,15 +4,15 @@ import os
 import streamlit as st
 import openai
 
-api_key = st.secrets['API_KEY']
-openai.api_key = api_key
+#api_key = st.secrets['API_KEY']
+#openai.api_key = api_key
 
-org_key = st.secrets['OPEN-AI-ORGANISATION']
-openai.organization = org_key
+#org_key = st.secrets['OPEN-AI-ORGANISATION']
+#openai.organization = org_key
 
 # RETRIEVE OPENAI MODEL
-openai.Model.list()
-openai.Model.retrieve("text-davinci-003")
+#openai.Model.list()
+#openai.Model.retrieve("text-davinci-003")
 
 # PROMPT FUNCTION
 def prompt(input):
